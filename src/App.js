@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Education />   {/* if you want Education inside About, import it there */}
+      
       <Skills />
       <Projects />
       <Achievements />
