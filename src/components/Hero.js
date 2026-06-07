@@ -1,6 +1,6 @@
 import React from 'react';
 import profilePic from '../assets/NISH.jpeg';
-
+import Hero from "./components/Hero";
 function Hero() {
   return (
     <section id="hero" className="hero">

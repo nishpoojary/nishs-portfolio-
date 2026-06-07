@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-
+import Projects from "./components/Projects";
 const projects = [
   {
     title: "Connect - Social Media",

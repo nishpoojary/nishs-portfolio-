@@ -1,5 +1,5 @@
 import React from 'react';
-
+import About from "./About";
 function Education() {
   return (
     <section id="education" className="education">

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Skills from "./components/Skills";
 function Skills() {
   return (
     <section id="skills" className="skills">

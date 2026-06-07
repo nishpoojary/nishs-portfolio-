@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHome, FaTools, FaUserGraduate, FaLaptopCode, FaProjectDiagram, FaEnvelope, FaCog } from "react-icons/fa";
-
+import Navbar from "./components/Navbar";
 
 function Navbar({ toggleTheme }) {
   return (
