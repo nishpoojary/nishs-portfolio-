@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import Contact from "./components/Contact";
+
 function Contact() {
   return (
     <section id="contact" className="contact">
@@ -35,12 +35,9 @@ function Contact() {
           <span>Email</span>
         </a>
       </div>
-      <div>
 
-
-       < br />
-      </div>
-
+      {/* Proper spacing */}
+      <br />
     </section>
   );
 }

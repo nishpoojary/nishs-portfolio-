@@ -1,27 +1,21 @@
-import React from 'react';
-import About from "./About";
-function Education() {
+import React from "react";
+import Education from "./Education";  // ✅ only import Education here
+
+function About() {
   return (
-    <section id="education" className="education">
-      <h2>Education</h2>
-      <div className="education-cards">
-        <div className="edu-card">
-          <div className="edu-year">2025 - Present</div>
-          <div className="edu-content">
-            <h3>Masters in Computer Applications (MCA)</h3>
-            <p>Nitte University</p>
-          </div>
-        </div>
-        <div className="edu-card">
-          <div className="edu-year">2022 - 2025</div>
-          <div className="edu-content">
-            <h3>Bachelors in Computer Applications (BCA)</h3>
-            <p>St. Philomena College, Puttur</p>
-          </div>
-        </div>
-      </div>
+    <section id="about" className="about">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate software developer with a strong foundation in web
+        technologies and computer networks. I enjoy building full‑stack
+        applications, experimenting with modern UI/UX, and contributing to
+        open‑source projects.
+      </p>
+
+      {/* Include Education section inside About */}
+      <Education />
     </section>
   );
 }
 
-export default Education;
+export default About;

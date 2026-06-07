@@ -1,6 +1,13 @@
 import React from "react";
-import { FaHome, FaTools, FaUserGraduate, FaLaptopCode, FaProjectDiagram, FaEnvelope, FaCog } from "react-icons/fa";
-import Navbar from "./components/Navbar";
+import {
+  FaHome,
+  FaTools,
+  FaUserGraduate,
+  FaLaptopCode,
+  FaProjectDiagram,
+  FaEnvelope,
+  FaCog
+} from "react-icons/fa";
 
 function Navbar({ toggleTheme }) {
   return (
@@ -15,6 +22,7 @@ function Navbar({ toggleTheme }) {
         <ul className="nav-icons">
           <li><a href="#hero" title="Home"><FaHome /></a></li>
           <li><a href="#about" title="About"><FaTools /></a></li>
+          <li><a href="#education" title="Education"><FaUserGraduate /></a></li>
           <li><a href="#skills" title="Skills"><FaLaptopCode /></a></li>
           <li><a href="#projects" title="Projects"><FaProjectDiagram /></a></li>
           <li><a href="#contact" title="Contact"><FaEnvelope /></a></li>

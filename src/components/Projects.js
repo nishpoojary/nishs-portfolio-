@@ -1,25 +1,27 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import Projects from "./components/Projects";
+
 const projects = [
   {
     title: "Connect - Social Media",
-    description: "A full-featured social media platform built with the MERN stack. Includes authentication, authorization, and complete CRUD operations.",
+    description:
+      "A full-featured social media platform built with the MERN stack. Includes authentication, authorization, and complete CRUD operations.",
     tags: ["MERN", "AUTH"],
     image: "/images/connect.png",
-    github: "https://github.com/yourrepo/connect"
+    github: "https://github.com/yourrepo/connect",
   },
   {
     title: "React Youtube Clone",
-    description: "A functional clone of YouTube utilizing the Rapid API to fetch and display video content.",
+    description:
+      "A functional clone of YouTube utilizing the Rapid API to fetch and display video content.",
     tags: ["REACT", "API"],
     image: "/images/youtube.png",
-    github: "https://github.com/yourrepo/youtube-clone"
+    github: "https://github.com/yourrepo/youtube-clone",
   },
   // add more projects here...
 ];
 
-export default function Projects() {
+function Projects() {
   return (
     <section className="projects">
       <h2>Featured Projects</h2>
@@ -34,7 +36,12 @@ export default function Projects() {
             ))}
           </div>
           {/* GitHub icon only, appears on hover */}
-          <a href={proj.github} target="_blank" rel="noopener noreferrer" className="github-icon">
+          <a
+            href={proj.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-icon"
+          >
             <FaGithub />
           </a>
         </div>
@@ -42,3 +49,5 @@ export default function Projects() {
     </section>
   );
 }
+
+export default Projects;
