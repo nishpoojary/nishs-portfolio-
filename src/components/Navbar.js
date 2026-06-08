@@ -14,7 +14,7 @@ function Navbar({ toggleTheme }) {
     <header className="navbar">
       {/* Your name/logo on the left */}
       <div className="navbar-brand">
-        <h1>Nish</h1>
+        <h1>Nishmitha</h1>
       </div>
 
       {/* Navigation + settings grouped together */}

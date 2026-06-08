@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "../App.css"; // go up one folder to src
 
 function Education() {
+  useEffect(() => {
+    const cards = document.querySelectorAll(".edu-card");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // keep visible once shown
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="education" className="education">
       <h2>Education</h2>

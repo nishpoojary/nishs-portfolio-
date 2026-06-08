@@ -14,6 +14,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* =========================
    Navbar
    ========================= */
@@ -21,7 +22,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 95%;
+  width: 95%; /* full width for balance */
   height: 70px;
   background: inherit; /* matches theme */
   color: inherit;
@@ -30,14 +31,15 @@ html {
   align-items: center;
   padding: 0 5%;
   z-index: 1000;
-  border-bottom: 2px solid currentColor; /* clean underline */
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Brand (your name) */
+/* Brand (your name/logo) */
 .navbar-brand h1 {
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0;
+  cursor: pointer;
 }
 
 /* Right side container */
@@ -63,13 +65,26 @@ html {
   transition: color 0.3s ease;
 }
 
+.nav-icons li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
 .nav-icons li a:hover {
   color: gray;
 }
 
-/* =========================
-   Settings Button
-   ========================= */
+.nav-icons li a:hover::after {
+  width: 100%; /* underline animation */
+}
+
+/* Settings Button */
 .settings-icon,
 .settings-btn {
   font-size: 1.5rem;
@@ -82,23 +97,21 @@ html {
 /* Dark theme override */
 .dark-theme .settings-icon,
 .dark-theme .settings-btn {
-  color: #888; /* grey so visible on dark background */
+  color: #888; /* visible on dark background */
 }
 
 /* Light theme override */
 .light-theme .settings-icon,
 .light-theme .settings-btn {
-  color: #000; /* black for visibility on light background */
+  color: #000; /* visible on light background */
 }
 
 /* Hover effect */
 .settings-icon:hover,
 .settings-btn:hover {
   transform: rotate(90deg);
-  color: #fff; /* brighten on hover in dark theme */
-}
-
-/* =========================
+  color: #00bcd4; /* accent color on hover */
+}/* =========================
    Hero Section
    ========================= */
 .hero {
@@ -107,6 +120,9 @@ html {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 0 5%;
+  background: inherit; /* respects theme */
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Left side text */
@@ -135,62 +151,136 @@ html {
   gap: 1rem;
 }
 
-/* Buttons in black/white */
-.btn {
+/* Buttons adapt to theme */
+
+/* Download CV button */
+.btn-download {
+  display: inline-block;
   padding: 0.8rem 1.5rem;
-  border: none;
-  background: #000;
-  color: #fff;
   font-weight: bold;
   border-radius: 4px;
   text-decoration: none;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  animation: blink 1.2s infinite; /* continuous blink */
 }
 
-.btn:hover {
-  transform: scale(1.05);
+/* Light theme */
+.light-theme .btn-download {
+  background: #000;   /* solid black */
+  color: #fff;        /* white text */
+  border: 2px solid #000;
+}
+
+.light-theme .btn-download:hover {
   background: #333;
 }
 
-.btn-outline {
-  background: transparent;
-  border: 2px solid #000;
-  color: inherit;
+/* Dark theme */
+.dark-theme .btn-download {
+  background: #fff;   /* solid white */
+  color: #000;        /* black text */
+  border: 2px solid #fff;
 }
 
-.btn-outline:hover {
+.dark-theme .btn-download:hover {
+  background: #ddd;
+}
+
+/* Let's Talk button */
+.btn-outline {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme */
+.light-theme .btn-outline {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+}
+
+.light-theme .btn-outline:hover {
   background: #000;
   color: #fff;
+}
+
+/* Dark theme */
+.dark-theme .btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.dark-theme .btn-outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Blink animation */
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
 /* Right side image */
 .hero-right {
+  position: relative; /* allows layering */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.profile-pic {
-  width: 300px;        /* same size as havyas.in */
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;  /* square with rounded corners */
-  border: 3px solid #000;
-  transition: transform 0.3s ease;
-}
-
 .profile-pic:hover {
   transform: scale(1.05);
+}
+/* Profile picture */
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid currentColor; /* theme-aware border */
+  position: relative;
+  z-index: 2;
+  animation: float 4s ease-in-out infinite; /* continuous movement */
+}
+
+/* Floating animation */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); } /* move up slightly */
+  100% { transform: translateY(0); }
+}
+
+
+/* Background square behind profile pic */
+.hero-right::before {
+  content: "";
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  background: #777; /* neutral grey */
+  border-radius: 8px;
+  top: -26px;
+  left: 150px;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-right:hover::before {
+  transform: translateY(-5px) translateX(-5px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
 }
 
 /* =========================
    Responsive (Mobile)
    ========================= */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* hide nav links on mobile */
-  }
-
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
@@ -205,58 +295,63 @@ html {
     width: 220px;
     height: 220px;
   }
+
+  .hero-right::before {
+    left: 50%; /* center behind image */
+    transform: translateX(-50%);
+  }
 }
-/* Grey background square behind profile pic */
-.hero-right {
-  position: relative; /* allows layering */
+/* Education Section */
+.education {
+  padding: 4rem 5%;
+  text-align: center;
 }
 
-.hero-right::before {
-  content: "";
-  position: absolute;
-  width: 295px;        /* just a touch smaller than the photo */
-  height: 295px;
-  background: #ccc;    /* grey square */
-  border-radius: 8px;
-  top: -26px;           /* move slightly up */
-  left: 150px;           /* keep close, minimal offset */
-  z-index: 1;          /* behind the photo */
+.education h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
-.profile-pic {
-  position: relative;
-  z-index: 2;          /* photo stays above the grey square */
-}
-.hero-right::before {
-  content: "";
-  position: absolute;
-  width: 295px;        /* slightly smaller than photo */
-  height: 295px;
-  background: #ccc;    /* grey square */
-  border-radius: 8px;
-  top: -26px;          /* move up */
-  left: 150px;         /* offset close to photo */
-  z-index: 1;          /* behind the photo */
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* subtle glow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.education-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.hero-right:hover::before {
-  transform: translateY(-5px) translateX(-5px); /* slight movement on hover */
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);        /* stronger glow on hover */
+/* Hidden initially */
+.edu-card {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+  text-align: left;
+  border: 1px solid currentColor;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-.profile-pic {
-  position: relative;
-  z-index: 2;          /* photo stays above the grey square */
+/* Visible when scrolled into view */
+.edu-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-/* About Section */
+
+/* Hover effect */
+.edu-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
 /* =========================
    About Section
    ========================= */
 .about {
   padding: 4rem 5%;
   text-align: center;
+  background: inherit;   /* respects theme */
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .about h2 {
@@ -270,7 +365,6 @@ html {
   opacity: 0.85;
 }
 
-/* Stats row */
 .about-stats {
   display: flex;
   justify-content: center;
@@ -294,17 +388,9 @@ html {
 .education {
   padding: 4rem 5%;
   text-align: center;
-}
-
-/* Theme-specific overrides */
-.dark-theme .education {
-  background: #000;
-  color: #fff;
-}
-
-.light-theme .education {
-  background: #fff;
-  color: #000;
+  background: inherit;   /* respects theme */
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .education h2 {
@@ -320,7 +406,6 @@ html {
   flex-wrap: wrap;
 }
 
-/* Education Card */
 .edu-card {
   padding: 2rem;
   border-radius: 10px;
@@ -328,22 +413,12 @@ html {
   text-align: left;
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, color 0.3s ease;
+  background: inherit;
+  color: inherit;
+  border: 1px solid currentColor; /* theme-aware border */
 }
 
-/* Dark theme card */
-.dark-theme .edu-card {
-  background: #111;
-  box-shadow: 0 0 15px rgba(255,255,255,0.1);
-}
-
-/* Light theme card */
-.light-theme .edu-card {
-  background: #f5f5f5;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-/* Year badge */
 .edu-year {
   font-size: 1rem;
   font-weight: bold;
@@ -353,7 +428,6 @@ html {
   color: inherit;
 }
 
-/* Content */
 .edu-content h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
@@ -364,12 +438,10 @@ html {
   color: inherit;
 }
 
-/* Hover effect */
 .edu-card:hover {
   transform: translateY(-8px) scale(1.02);
 }
 
-/* Animated glow border */
 .edu-card::before {
   content: "";
   position: absolute;
@@ -387,23 +459,17 @@ html {
 .edu-card:hover::before {
   opacity: 1; 
 }
-/* Skills Section */
+
+/* =========================
+   Skills Section
+   ========================= */
 .skills {
   padding: 4rem 5%;
   text-align: center;
+  background: inherit;   /* respects theme */
+  color: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-
-/* Theme-specific overrides */
-.dark-theme .skills {
-  background: #000;
-  color: #fff;
-}
-
-.light-theme .skills {
-  background: #fff;
-  color: #000;
-}
-
 .skills h2 {
   font-size: 2.2rem;
   margin-bottom: 3rem;

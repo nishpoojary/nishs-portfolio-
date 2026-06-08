@@ -12,10 +12,11 @@ function Hero() {
           Crafting robust and scalable web applications.  
           Currently pursuing Software Engineering & Computer Networks.
         </p>
-        <div className="hero-buttons">
-          <a href="/NISH-CV.pdf" className="btn">DOWNLOAD CV</a>
-          <a href="#contact" className="btn btn-outline">LET’S TALK</a>
-        </div>
+  <div className="hero-buttons">
+  <a href="/cv.pdf" className="btn-download">DOWNLOAD CV</a>
+  <a href="#contact" className="btn-outline">LET’S TALK</a>
+</div>
+
       </div>
 
       {/* Right side image with shadow box */}
