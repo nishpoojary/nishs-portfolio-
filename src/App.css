@@ -1,3 +1,55 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #000; /* pure black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.splash.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Logo container */
+.logo-container {
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+/* NN logo */
+.nn-logo {
+  font-family: "Montserrat", "Helvetica Neue", sans-serif; /* modern, professional font */
+  font-size: 5rem;
+  font-weight: 800;
+  color: #fff; /* pure white */
+  letter-spacing: 6px;
+  position: relative;
+}
+
+/* Smooth underline reveal */
+.nn-logo::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 3px;
+  background: #000000;
+  transition: width 1.5s ease;
+}
+
+.logo-container.show-line .nn-logo::after {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* =========================
    Theme
    ========================= */
@@ -110,7 +162,7 @@ html {
 .settings-icon:hover,
 .settings-btn:hover {
   transform: rotate(90deg);
-  color: #00bcd4; /* accent color on hover */
+  color: #828282; /* accent color on hover */
 }/* =========================
    Hero Section
    ========================= */
@@ -237,6 +289,7 @@ html {
 .profile-pic:hover {
   transform: scale(1.05);
 }
+
 /* Profile picture */
 .profile-pic {
   width: 300px;
@@ -270,6 +323,15 @@ html {
   z-index: 1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); } /* move up slightly */
+  100% { transform: translateY(0); }
+}
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
 }
 
 .hero-right:hover::before {
@@ -312,6 +374,21 @@ html {
   margin-bottom: 2rem;
 }
 
+.education h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
 .education-cards {
   display: flex;
   justify-content: center;
@@ -358,7 +435,21 @@ html {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+.about h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
 
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
 .about p {
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -376,88 +467,109 @@ html {
   font-size: 2rem;
   margin-bottom: 0.3rem;
 }
+.stat h2::afters {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
 
 .stat p {
   font-size: 1rem;
   color: inherit; /* inherits from theme */
 }
-
-/* =========================
-   Education Section
-   ========================= */
-.education {
+.achievements {
   padding: 4rem 5%;
   text-align: center;
-  background: inherit;   /* respects theme */
-  color: inherit;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-.education h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
+/* Title */
+.achievements h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 12px rgba(255,255,255,0.3);
 }
-
-.education-cards {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.edu-card {
-  padding: 2rem;
-  border-radius: 10px;
-  width: 320px;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, color 0.3s ease;
-  background: inherit;
-  color: inherit;
-  border: 1px solid currentColor; /* theme-aware border */
-}
-
-.edu-year {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  border-left: 4px solid currentColor;
-  padding-left: 10px;
-  color: inherit;
-}
-
-.edu-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.edu-content p {
-  font-size: 1rem;
-  color: inherit;
-}
-
-.edu-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-.edu-card::before {
+.achievements h2::after {
   content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #444, #888, #444);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
 }
 
-.edu-card:hover::before {
-  opacity: 1; 
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
+
+/* Grid layout */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Card style */
+.achievement-card {
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid currentColor; /* theme-aware border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Base hover (only transform) */
+.achievement-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Dark theme hover: white glow */
+.achievements.dark .achievement-card:hover {
+  box-shadow: 0 0 25px rgba(255,255,255,0.8);
+}
+
+/* Light theme hover: subtle dark shadow */
+.achievements.light .achievement-card:hover {
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+/* Optional: Dark theme idle glow (breathing effect) */
+.achievements.dark .achievement-card {
+  box-shadow: 0 0 12px rgba(255,255,255,0.15);
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 12px rgba(255,255,255,0.15); }
+  to   { box-shadow: 0 0 20px rgba(255,255,255,0.4); }
+}
+
+/* Icon styling */
+.achievement-card .icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+  transition: text-shadow 0.3s ease;
+}
+
+/* Icon glow in dark theme */
+.achievements.dark .achievement-card .icon:hover {
+  text-shadow: 0 0 12px rgba(255,255,255,0.9);
 }
 
 /* =========================
@@ -475,6 +587,21 @@ html {
   margin-bottom: 3rem;
   letter-spacing: 1px;
 }
+.skills h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
 
 /* Panels layout */
 .skills-panels {
@@ -491,7 +618,10 @@ html {
   width: 320px;
   text-align: left;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+border: 1px solid currentColor; /* theme-aware border */
+
 }
+
 
 /* Dark theme panel */
 .dark-theme .skill-panel {
@@ -556,6 +686,7 @@ html {
   transform: translateY(-8px);
 }
 
+
 /* =========================
    Projects Section
    ========================= */
@@ -566,18 +697,34 @@ html {
 /* Section title */
 .projects h2 {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;   /* space below title */
   color: #fff;
 }
+.projects h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
 
-/* Grid layout: 4 cards in one row */
-.projects {
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
+
+/* Grid wrapper for cards */
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;                  /* spacing between cards */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6.5rem;            /* spacing between cards */
   justify-items: center;
+  width: 100%;
 }
 
 /* Project card */
@@ -593,6 +740,10 @@ html {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
+  border: 1px solid currentColor; /* theme-aware border */
+
+
+  max-width: 480px;       /* keeps cards neat */
 }
 
 .project-card:hover {
@@ -603,26 +754,51 @@ html {
 /* Preview image */
 .preview-img {
   width: 100%;
-  height: 140px;
+  height: 260px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 0.8rem;
+}.projects.dark .project-card {
+  background: #1a1a1a;
+  color: #ccc;
 }
+
+/* Light theme */
+.projects.light .projects-card {
+  background: #f5f5f5;
+  color: #222;
+}
+
 
 /* Title */
 .project-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0.3rem 0;
   color: #fff;
+} 
+.project-card h3::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
 }
 
 /* Description */
 .project-card p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.4;
   margin: 0.3rem 0;
   color: #ccc;
-  max-height: 60px;
+  max-height: 0px;
   overflow: hidden;
 }
 
@@ -657,7 +833,7 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2rem;
-  color: #fff;
+  color: #080808;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 2;
@@ -671,6 +847,197 @@ html {
   color: #ccc;
 }
 
+/* =========================
+   Responsive Grid
+   ========================= */
+@media (max-width: 1200px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.achievements {
+  padding: 4rem 5%;
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.achievements h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 12px rgba(255,255,255,0.3);
+}
+
+/* Grid layout */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Card style */
+.achievement-card {
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+ border: 1px solid currentColor; /* theme-aware border */}
+
+/* Hover effect for dark theme */
+.achievements.dark .achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);  /* white glow */
+}
+
+/* Hover effect for light theme */
+.achievements.light .achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);        /* subtle dark shadow */
+}
+
+
+/* Hover effect */
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 40px rgba(2, 2, 2, 55);
+}
+
+/* Icon */
+.achievement-card .icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+.contact {
+  padding: 4rem 5%;
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Title with animated underline */
+.contact h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.contact h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: currentColor;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(1.3); opacity: 1; }
+}
+
+/* Intro text */
+.contact-text {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* Social links container */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Icon buttons */
+.social-links a {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Label under icon */
+.social-links a span {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Hover ripple effect */
+.social-links a::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 40%);
+  top: -50%;
+  left: -50%;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.social-links a:hover::before {
+  transform: scale(1);
+}
+
+/* Dark theme */
+.contact.dark {
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.contact.dark .social-links a {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.contact.dark .social-links a:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Light theme */
+.contact.light {
+  background: #fdfdfd;
+  color: #222;
+}
+
+.contact.light .social-links a {
+  background: #e6e6e6;
+  color: #0072ff;
+}
+
+.contact.light .social-links a:hover {
+  transform: scale(1.15) rotate(-5deg);
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
 
 .footer p {
   margin: 0.5rem 0;

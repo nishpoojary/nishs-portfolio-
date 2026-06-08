@@ -13,7 +13,7 @@ function Hero() {
           Currently pursuing Software Engineering & Computer Networks.
         </p>
   <div className="hero-buttons">
-  <a href="/cv.pdf" className="btn-download">DOWNLOAD CV</a>
+  <a href="/assets/CV_OF_NISHMITHA N-1.pdf.docx" className="btn-download">DOWNLOAD CV</a>
   <a href="#contact" className="btn-outline">LET’S TALK</a>
 </div>
 

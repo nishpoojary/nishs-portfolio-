@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Splash from "./components/Splash";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
@@ -10,26 +11,37 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./App.css";
 
-function App() {
-  // ✅ Theme state
-  const [theme, setTheme] = useState("light-theme");
 
-  // ✅ Toggle function
+function App() {
+  const [theme, setTheme] = useState("dark-theme");
+  const [loading, setLoading] = useState(true);
+
   const toggleTheme = () => {
-    setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
+    setTheme(theme === "dark-theme" ? "light-theme" : "dark-theme");
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000); // splash duration
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className={theme}>
-      <Navbar toggleTheme={toggleTheme} />   {/* pass toggle to Navbar */}
-      <Hero />
-      <About />
-      <Education />
-      <Skills />
-      <Projects />
-      <Achievements />
-      <Contact />
-      <Footer />
+      {loading ? (
+        <Splash />
+      ) : (
+        <>
+          <Navbar toggleTheme={toggleTheme} />
+          <Hero />
+          <About />
+          <Education />
+          <Skills />
+          <Projects />
+          <Achievements />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
