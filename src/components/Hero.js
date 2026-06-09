@@ -1,5 +1,6 @@
 import React from "react";
 import profilePic from "../assets/NISH.jpeg";
+import cvFile from "../assets/CV_OF_NISHMITHA_N.pdf"; // import the PDF
 
 function Hero() {
   return (
@@ -12,11 +13,20 @@ function Hero() {
           Crafting robust and scalable web applications.  
           Currently pursuing Software Engineering & Computer Networks.
         </p>
-  <div className="hero-buttons">
-  <a href="/assets/CV_OF_NISHMITHA N-1.pdf.docx" className="btn-download">DOWNLOAD CV</a>
-  <a href="#contact" className="btn-outline">LET’S TALK</a>
-</div>
 
+        <div className="hero-buttons">
+          {/* CV download button */}
+          <a
+            href={cvFile}          // use the imported file
+            className="btn-download"
+            download="Nishmitha_CV.pdf"
+          >
+            DOWNLOAD CV
+          </a>
+
+          {/* Contact button */}
+          <a href="#contact" className="btn-outline">LET’S TALK</a>
+        </div>
       </div>
 
       {/* Right side image with shadow box */}
