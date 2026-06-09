@@ -182,21 +182,34 @@ html {
   text-align: left;
 }
 
+.hero {
+  font-family: "Montserrat", sans-serif; /* ✅ modern font */
+}
+
+/* Headline */
 .hero-left h1 {
-  font-size: 2.5rem;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 0.5rem;
 }
 
+/* Subheading */
 .hero-left h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
+/* Paragraph */
 .hero-left p {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
   opacity: 0.85;
 }
+
 
 .hero-buttons {
   display: flex;
@@ -1062,3 +1075,4 @@ border: 1px solid currentColor; /* theme-aware border */
 .footer-links a:hover {
   color: gray;
 }
+

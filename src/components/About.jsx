@@ -1,5 +1,4 @@
 import React from "react";
-import Education from "./Education";  // ✅ only import Education here
 
 function About() {
   return (
@@ -11,9 +10,6 @@ function About() {
         applications, experimenting with modern UI/UX, and contributing to
         open‑source projects.
       </p>
-
-      {/* Include Education section inside About */}
-      <Education />
     </section>
   );
 }

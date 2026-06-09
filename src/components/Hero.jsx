@@ -7,7 +7,8 @@ function Hero() {
     <section id="hero" className="hero">
       {/* Left side text */}
       <div className="hero-left">
-        <h1>HEY THERE, I'M Nish</h1>
+        <h2>HEY THERE, I'M </h2>
+          <h1><b>Nishmitha N</b></h1>
         <h2>Full Stack Developer</h2>
         <p>
           Crafting robust and scalable web applications.  

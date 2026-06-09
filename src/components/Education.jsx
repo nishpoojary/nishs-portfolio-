@@ -30,7 +30,7 @@ function Education() {
           <div className="edu-year">2025 - Present</div>
           <div className="edu-content">
             <h3>Masters in Computer Applications (MCA)</h3>
-            <p>Nitte University</p>
+            <p>St. Philomena College, Puttur</p>
           </div>
         </div>
         <div className="edu-card">
