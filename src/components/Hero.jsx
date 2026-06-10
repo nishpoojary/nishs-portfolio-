@@ -9,7 +9,7 @@ function Hero() {
       <div className="hero-left">
         <h2>HEY THERE, I'M </h2>
           <h1><b>Nishmitha N</b></h1>
-        <h2>Full Stack Developer</h2>
+        <h2>MCA Student | Developer | Tech Enthusiast</h2>
         <p>
           Crafting robust and scalable web applications.  
           Currently pursuing Software Engineering & Computer Networks.

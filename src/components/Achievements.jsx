@@ -2,11 +2,30 @@ import React from "react";
 
 function Achievements({ theme }) {
   const achievements = [
-    { icon: "🏆", text: "Built and deployed a full-stack MERN social media app with authentication and CRUD features." },
-    { icon: "🚀", text: "Integrated Stripe payments into a food delivery app for seamless transactions." },
-    { icon: "🎬", text: "Developed a YouTube clone using Rapid API to fetch and display video content." },
-    { icon: "🎵", text: "Created a music streaming app leveraging Saavn API for a large song library." },
-    { icon: "💡", text: "Contributed to open-source projects and improved UI/UX consistency across apps." },
+     {
+    icon: "🔐",
+    text: "Successfully completed NPTEL Online Certification in 'Foundation of Cryptography, IIIT Bangalore'"
+  },
+  {
+    icon: "🛡️",
+    text: "Successfully completed a 30-hour training programme in 'Cybersecurity and Digital Forensics' by TALFOR"
+  },
+  {
+    icon: "🏆",
+    text: "Secured Special Category Award in a 32-hour hackathon INNOVATEHACK 2026 at St. Philomena College, Puttur"
+  },
+  {
+    icon: "💻",
+    text: "Participated in Internal Smart India Hackathon at St. Philomena College, 2024"
+  },
+  {
+    icon: "🥇",
+    text: "Participated in NAIN 2.0 Project Competition at St. Philomena College, 2024"
+  },
+  {
+    icon: "🌐",
+    text: "Actively participated in the WordPress Campus Connect Event at St. Philomena College, Puttur"
+  }
   ];
 
   return (

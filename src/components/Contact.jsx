@@ -10,15 +10,15 @@ function Contact({ theme }) {
       </p>
 
       <div className="social-links">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="github">
+        <a href="https://github.com/nishpoojary" target="_blank" rel="noopener noreferrer" className="github">
           <FaGithub />
           <span>GitHub</span>
         </a>
-        <a href="mailto:yourmail@example.com" className="email">
+        <a href="mailto:nishpoojary97@gmail.com.com" className="email">
           <FaEnvelope />
           <span>Email</span>
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="linkedin">
+        <a href="https://linkedin.com/in/nishpoojari" target="_blank" rel="noopener noreferrer" className="linkedin">
           <FaLinkedin />
           <span>LinkedIn</span>
         </a>

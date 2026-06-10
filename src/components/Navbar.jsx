@@ -24,7 +24,7 @@ function Navbar({ toggleTheme }) {
           <li><a href="#about" title="About"><FaTools /></a></li>
           <li><a href="#education" title="Education"><FaUserGraduate /></a></li>
           <li><a href="#skills" title="Skills"><FaLaptopCode /></a></li>
-          <li><a href="#projects" title="Projects"><FaProjectDiagram /></a></li>
+           <li><a href="#projects" title="Projects"><FaProjectDiagram /></a></li>
           <li><a href="#contact" title="Contact"><FaEnvelope /></a></li>
         </ul>
         <button className="settings-icon" onClick={toggleTheme}>

@@ -16,9 +16,6 @@ function Skills() {
             <span>HTML5</span>
             <span>CSS3</span>
             <span>Bootstrap</span>
-            <span>Tailwind</span>
-            <span>Sass</span>
-            <span>Redux</span>
           </div>
         </div>
 
@@ -26,11 +23,10 @@ function Skills() {
         <div className="skill-panel">
           <h3>Backend</h3>
           <div className="skill-tags">
-            <span>Node.js</span>
-            <span>Express</span>
+            <span>java</span>
             <span>Python</span>
             <span>Flask</span>
-            <span>Socket.io</span>
+            <span>php</span>
           </div>
         </div>
 
@@ -41,8 +37,6 @@ function Skills() {
             <span>MongoDB</span>
             <span>MySQL</span>
             <span>SQLite</span>
-            <span>Firebase</span>
-            <span>Git</span>
             <span>GitHub</span>
             <span>Vercel</span>
           </div>

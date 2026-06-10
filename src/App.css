@@ -734,7 +734,7 @@ border: 1px solid currentColor; /* theme-aware border */
 /* Grid wrapper for cards */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 6.5rem;            /* spacing between cards */
   justify-items: center;
   width: 100%;
@@ -1051,28 +1051,33 @@ border: 1px solid currentColor; /* theme-aware border */
   transform: scale(1.15) rotate(-5deg);
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
-
-.footer p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  opacity: 0.8;
+.footer {
+  background: #121212;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
 }
 
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+.footer-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
 }
 
-.footer-links a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  color: inherit;
-  transition: color 0.3s ease;
+.footer-icons {
+  margin-top: 10px;
 }
 
-.footer-links a:hover {
-  color: gray;
+.footer-icons a {
+  margin: 0 10px;
+  color: #e0e0e0;
+  font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.footer-icons a:hover {
+  color: #2196f3;
+  transform: scale(1.2);
+}
